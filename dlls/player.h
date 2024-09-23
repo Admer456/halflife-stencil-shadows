@@ -331,6 +331,7 @@ public:
 	int GetCustomDecalFrames();
 
 	void TabulateAmmo();
+	void InitializeEntities();
 
 	float m_flStartCharge;
 	float m_flAmmoStartCharge;
@@ -347,6 +348,7 @@ public:
 	char m_SbarString1[SBAR_STRING_SIZE];
 
 	float m_flNextChatTime;
+	bool m_sentInitMessages;
 
 	void SetPrefsFromUserinfo(char* infobuffer);
 

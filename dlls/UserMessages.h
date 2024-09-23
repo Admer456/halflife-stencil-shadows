@@ -52,6 +52,7 @@ inline int gmsgTeamNames = 0;
 
 inline int gmsgStatusText = 0;
 inline int gmsgStatusValue = 0;
+inline int gmsgLightSource = 0;
 
 inline int gmsgWeapons = 0;
 

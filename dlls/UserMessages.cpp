@@ -63,6 +63,7 @@ void LinkUserMessages()
 
 	gmsgStatusText = REG_USER_MSG("StatusText", -1);
 	gmsgStatusValue = REG_USER_MSG("StatusValue", 3);
+	gmsgLightSource = REG_USER_MSG("LightSource", -1);
 
 	gmsgWeapons = REG_USER_MSG("Weapons", 8);
 }

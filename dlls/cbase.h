@@ -217,6 +217,7 @@ public:
 	virtual bool IsNetClient() { return false; }
 	virtual const char* TeamID() { return ""; }
 
+	virtual void SendInitMessages(CBaseEntity* pPlayer = nullptr){};
 
 	//	virtual void	SetActivator( CBaseEntity *pActivator ) {}
 	virtual CBaseEntity* GetNextTarget();
