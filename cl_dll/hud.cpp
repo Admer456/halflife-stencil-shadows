@@ -30,6 +30,11 @@
 #include "demo_api.h"
 #include "vgui_ScorePanel.h"
 
+#include "lightlist.h"
+#include "svd_render.h"
+#include "svdformat.h"
+#include "svd_render.h"
+
 hud_player_info_t g_PlayerInfoList[MAX_PLAYERS_HUD + 1];	// player info from the engine
 extra_player_info_t g_PlayerExtraInfo[MAX_PLAYERS_HUD + 1]; // additional player info sent directly to the client dll
 
@@ -375,6 +380,8 @@ void CHud::Init()
 
 	MsgFunc_ResetHUD(0, 0, NULL);
 
+	gLightList.Init();
+
 #ifdef STEAM_RICH_PRESENCE
 	gEngfuncs.pfnClientCmd("richpresence_gamemode\n"); // reset
 	gEngfuncs.pfnClientCmd("richpresence_update\n");
@@ -400,6 +407,8 @@ CHud::~CHud()
 		}
 		m_pHudList = NULL;
 	}
+
+	SVD_Shutdown();
 }
 
 // GetSpriteIndex()
@@ -524,6 +533,9 @@ void CHud::VidInit()
 	m_TextMessage.VidInit();
 	m_StatusIcons.VidInit();
 	GetClientVoiceMgr()->VidInit();
+
+	gLightList.VidInit();
+	SVD_VidInit();
 }
 
 bool CHud::MsgFunc_Logo(const char* pszName, int iSize, void* pbuf)

@@ -64,6 +64,9 @@
     <Filter Include="Source Files\cl_dll\particleman">
       <UniqueIdentifier>{7085339d-2b33-4cdf-846c-0e4c7d33add8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\cl_dll\glew">
+      <UniqueIdentifier>{342db6cc-ef34-4ea5-a2c0-03eb72c51336}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\crossbow.cpp">
@@ -320,6 +323,21 @@
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\particleman\CBaseParticle.cpp">
       <Filter>Source Files\cl_dll\particleman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\glew\src\glew.c">
+      <Filter>Source Files\cl_dll\glew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\svdformat.cpp">
+      <Filter>Source Files\cl_dll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\lightlist.cpp">
+      <Filter>Source Files\cl_dll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\studio_stencil.cpp">
+      <Filter>Source Files\cl_dll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\svd_render.cpp">
+      <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -595,6 +613,30 @@
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\particleman\CBaseParticle.h">
       <Filter>Header Files\cl_dll\particleman</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\glew\include\GL\eglew.h">
+      <Filter>Source Files\cl_dll\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\glew\include\GL\glew.h">
+      <Filter>Source Files\cl_dll\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\glew\include\GL\glxew.h">
+      <Filter>Source Files\cl_dll\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\glew\include\GL\wglew.h">
+      <Filter>Source Files\cl_dll\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\svdformat.h">
+      <Filter>Source Files\cl_dll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\elight.h">
+      <Filter>Source Files\cl_dll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\lightlist.h">
+      <Filter>Source Files\cl_dll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\svd_render.h">
+      <Filter>Source Files\cl_dll</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

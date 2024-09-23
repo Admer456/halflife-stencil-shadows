@@ -22,6 +22,9 @@
 #include "tri.h"
 extern IParticleMan* g_pParticleMan;
 
+#include "svd_render.h"
+#include "lightlist.h"
+
 /*
 =================
 HUD_DrawNormalTriangles
@@ -34,6 +37,8 @@ void DLLEXPORT HUD_DrawNormalTriangles()
 	//	RecClDrawNormalTriangles();
 
 	gHUD.m_Spectator.DrawOverview();
+
+	gLightList.DrawNormal();
 }
 
 
@@ -48,7 +53,8 @@ void DLLEXPORT HUD_DrawTransparentTriangles()
 {
 	//	RecClDrawTransparentTriangles();
 
-
 	if (g_pParticleMan)
 		g_pParticleMan->Update();
+
+	 SVD_DrawTransparentTriangles();
 }

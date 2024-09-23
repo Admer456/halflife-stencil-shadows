@@ -7,6 +7,15 @@
 
 #pragma once
 
+#include "elight.h"
+#include "svdformat.h"
+
+enum shadow_lightype_t
+{
+	SL_TYPE_LIGHTVECTOR = 0,
+	SL_TYPE_POINTLIGHT
+};
+
 /*
 ====================
 CStudioModelRenderer
@@ -94,6 +103,29 @@ public:
 	// Process movement of player
 	virtual void StudioProcessGait(entity_state_t* pplayer);
 
+	// Stencil shadow stuff
+public:
+	// Gets entity lights for a model
+	virtual void StudioGetLightSources();
+
+	// Sets bounding box
+	virtual void StudioGetMinsMaxs(Vector& outMins, Vector& outMaxs);
+
+	// Sets up bodypart pointers
+	virtual void StudioSetupModelSVD(int bodypart);
+
+	// Draws shadows for an entity
+	virtual void StudioDrawShadow();
+
+	// Draws a shadow volume
+	virtual void StudioDrawShadowVolume();
+
+	// Tells if we should draw a shadow for this ent
+	virtual bool StudioShouldDrawShadow();
+
+	// Sets up the shadow info
+	virtual void StudioSetupShadows();
+
 public:
 	// Client clock
 	double m_clTime;
@@ -179,4 +211,46 @@ public:
 	// Concatenated bone and light transforms
 	float (*m_pbonetransform)[MAXSTUDIOBONES][3][4];
 	float (*m_plighttransform)[MAXSTUDIOBONES][3][4];
+
+public:
+	// Pointer to the shadow volume data
+	svdheader_t* m_pSVDHeader;
+	// Pointer to shadow volume submodel data
+	svdsubmodel_t* m_pSVDSubModel;
+
+	// Tells if a face is facing the light
+	bool m_trianglesFacingLight[MAXSTUDIOTRIANGLES];
+	// Index array used for rendering
+	uint16_t m_shadowVolumeIndexes[MAXSTUDIOTRIANGLES * 3];
+
+	cvar_t* m_pSkylightDirX;
+	cvar_t* m_pSkylightDirY;
+	cvar_t* m_pSkylightDirZ;
+
+	cvar_t* m_pSkylightColorR;
+	cvar_t* m_pSkylightColorG;
+	cvar_t* m_pSkylightColorB;
+
+	// Array of lights
+	elight_t* m_pEntityLights[MAX_MODEL_ENTITY_LIGHTS];
+	unsigned int m_iNumEntityLights;
+
+	// Closest entity light
+	int m_iClosestLight;
+	// Shadowing light's origin
+	Vector m_vShadowLightOrigin;
+	// Shadowing light vector
+	Vector m_vShadowLightVector;
+	// Type of shadow light source
+	shadow_lightype_t m_shadowLightType;
+
+	// Array of transformed vertexes
+	Vector m_vertexTransform[MAXSTUDIOVERTS * 2];
+
+	// Toggles rendering of stencil shadows
+	cvar_t* m_pCvarDrawStencilShadows;
+	// Extrusion length for stencil shadow volumes
+	cvar_t* m_pCvarShadowVolumeExtrudeDistance;
+	// Tells if two sided stencil test is supported
+	bool m_bTwoSideSupported;
 };
