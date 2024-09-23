@@ -1,3 +1,16 @@
+# "Adding hack-free stencil shadows to Half-Life"
+
+This repo is an adaptation (and slight enhancement to) Overfloater's guide on The Whole Half-Life:  
+https://twhl.info/wiki/page/Tutorial%3A_Adding_hack-free_Stencil_Shadows_to_Half-Life
+
+The purpose of this repo is for you to be able to easily follow the commits and integrate it into your own mod. Some main deviations from the tutorial are:
+* GLEW is used to manage OpenGL extensions, as opposed to the Windows-only `wglGetProcAddress`
+* Generally this is a lot more portable, there are no `Windows.h` includes
+* All `vec3_t` references are changed into `Vector`
+* Light entities have an extra `cast_shadow` keyvalue so that they can specify whether to cast shadows or not
+
+Have fun!
+
 # About
 
 [Half-Life Updated](https://github.com/twhl-community/halflife-updated), [Opposing Force Updated](https://github.com/twhl-community/halflife-op4-updated) and [Blue Shift Updated](https://github.com/twhl-community/halflife-bs-updated) are repositories that provide updated versions of the Half-Life SDK, targeted to the 3 Half-Life 1 PC games officially available.
